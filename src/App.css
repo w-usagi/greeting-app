@@ -53,6 +53,38 @@ button {
   margin-top: 50px;
 }
 
+.ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 24px;
+  width: 220px;
+}
+
+.rank-number {
+  width: 50px;
+  text-align: right;
+}
+
+.rank-score {
+  width: 50px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.rank-point {
+  width: 60px;
+  text-align: left;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
