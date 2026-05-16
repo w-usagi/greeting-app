@@ -1,6 +1,11 @@
-function GameScreen({ currentWord, onAnswer }) {
+function GameScreen({ currentWord, onAnswer, version }) {
   return (
     <div className="game-screen">
+
+        <div className="version">
+            v{version}
+        </div>
+
       <div className="word">{currentWord}</div>
 
       <div className="buttons">
