@@ -3,11 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://w-usagi.github.io/greeting-app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist -r https://github.com/w-usagi/greeting-app.git"
   },
   "dependencies": {
     "react": "^19.0.0",
