@@ -4,6 +4,14 @@ body {
   background: #f4f4f4;
 }
 
+.version {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
 .app {
   text-align: center;
   padding: 40px;

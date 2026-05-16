@@ -24,6 +24,7 @@ function App() {
   const [currentWord, setCurrentWord] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [ranking, setRanking] = useState([]);
+  const version = import.meta.env.VITE_APP_VERSION;
 
   // ランキング読み込み
   useEffect(() => {
@@ -93,6 +94,11 @@ function App() {
 
   return (
     <div className="app">
+
+    <div className="version">
+      v{version}
+    </div>
+
       <h1>さいならっきょうゲーム</h1>
 
       <ScoreBoard timeLeft={timeLeft} score={score} />
@@ -105,6 +111,7 @@ function App() {
         <GameScreen
           currentWord={currentWord.text}
           onAnswer={handleAnswer}
+          version={version}
         />
       )}
 
