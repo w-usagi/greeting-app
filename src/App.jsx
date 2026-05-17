@@ -123,15 +123,18 @@ function App() {
       v{version}
     </div>
 
-      <h1>さいならっきょうゲーム</h1>
-
-      <p className="game-description">
-        あいさつしよう！
-        60秒で何回あいさつできるかな？<br/>
-        (あいさつできたら+1 point、できなかったら-3 point)<br/>
-        制作背景 <a href="https://github.com/w-usagi/greeting-app/blob/main/README.md">こちら</a> から
-      </p>
-
+      {!isPlaying && countdown === null && (
+        <>
+          <h1>さいならっきょうゲーム</h1>
+          <p className="game-description">
+            あいさつしよう！
+            60秒で何回あいさつできるかな？<br/>
+            (あいさつできたら+1 point、できなかったら-3 point)<br/>
+            スマホでゲームするときは横画面で！<br/>
+            制作背景 <a href="https://github.com/w-usagi/greeting-app/blob/main/README.md">こちら</a> から
+          </p>
+        </>
+      )}
       <ScoreBoard timeLeft={timeLeft} score={score} />
 
       {countdown !== null ? (
@@ -151,7 +154,9 @@ function App() {
         />
       )}
 
-      <Ranking ranking={ranking} />
+      {!isPlaying && countdown === null && (
+        <Ranking ranking={ranking} />
+      )}
     </div>
   );
 }

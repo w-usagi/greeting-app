@@ -69,8 +69,8 @@ button {
 
 .exit-button {
   position: absolute;
-  top: 100px;
-  right: 100px;
+  top: 48px;
+  right: 48px;
 
   background: transparent;
   border: none;
@@ -125,7 +125,7 @@ button {
 }
 
 .exit-image {
-  width: 300px;
+  width: 196px;
   height: auto;
 }
 
@@ -180,6 +180,49 @@ button {
 
   border-color: transparent #222 transparent transparent;
 }
+
+@media (max-width: 768px) {
+
+  .score-board {
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .score-board h2 {
+    font-size: 18px;
+    width: 120px;
+  }
+
+  .exit-button {
+    top: 64px;
+    right: 64px;
+  }
+
+  .exit-image {
+    width: 128px;
+  }
+
+  .speaker-area {
+    margin: 12px 0;
+    gap: 12px;
+  }
+
+  .speaker-image {
+    width: 140px;
+  }
+
+  .speech-bubble {
+    width: 180px;
+    height: 90px;
+    font-size: 28px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
