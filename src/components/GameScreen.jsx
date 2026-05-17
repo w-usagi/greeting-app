@@ -1,8 +1,23 @@
 import speakerImage from "../assets/ANNX_PlanB.JPG";
+import exitImage from "../assets/zzz_cicada.jpg";
 
-function GameScreen({ currentWord, onAnswer, version }) {
+function GameScreen({ currentWord, onAnswer, onExit, version }) {
   return (
     <div className="game-screen">
+      <button
+        className="exit-button"
+        onClick={() => {
+          if (window.confirm("おやすミンミンゼミ")) {
+            onExit();
+          }
+        }}
+      >
+        <img
+          src={exitImage}
+          alt="exit"
+          className="exit-image"
+        />
+      </button>
       <div className="version">
         v{version}
       </div>
