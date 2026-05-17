@@ -24,6 +24,8 @@ function App() {
   const [currentWord, setCurrentWord] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [ranking, setRanking] = useState([]);
+  const [countdown, setCountdown] = useState(null);
+  
   const version = import.meta.env.VITE_APP_VERSION;
 
   // ランキング読み込み
@@ -61,6 +63,23 @@ function App() {
     return () => clearInterval(wordTimer);
   }, [isPlaying]);
 
+  // カウントダウン
+  useEffect(() => {
+  if (countdown === null) return;
+
+  if (countdown === 0) {
+    setCountdown(null);
+    setIsPlaying(true);
+    return;
+  }
+
+  const timer = setTimeout(() => {
+    setCountdown((prev) => prev - 1);
+  }, 1000);
+
+  return () => clearTimeout(timer);
+}, [countdown]);
+
   const nextWord = () => {
     const random = WORDS[Math.floor(Math.random() * WORDS.length)];
     setCurrentWord(random);
@@ -69,19 +88,21 @@ function App() {
   const startGame = () => {
     setScore(0);
     setTimeLeft(60);
-    setIsPlaying(true);
+    setCountdown(3);
   };
 
-  const finishGame = () => {
+  const finishGame = (saveScore = true) => {
     setIsPlaying(false);
 
-    const newRanking = [...ranking, score]
-      .sort((a, b) => b - a)
-      .slice(0, 5);
+  if (!saveScore) return;
 
-    setRanking(newRanking);
+  const newRanking = [...ranking, score]
+    .sort((a, b) => b - a)
+    .slice(0, 5);
 
-    localStorage.setItem("ranking", JSON.stringify(newRanking));
+  setRanking(newRanking);
+
+  localStorage.setItem("ranking", JSON.stringify(newRanking));
   };
 
   const handleAnswer = (button) => {
@@ -89,6 +110,9 @@ function App() {
 
     if (button === currentWord.answer) {
       setScore((prev) => prev + 1);
+    }
+    else {
+      setScore((prev) => prev - 3);
     }
   };
 
@@ -101,9 +125,19 @@ function App() {
 
       <h1>さいならっきょうゲーム</h1>
 
+      <p className="game-description">
+        あいさつしよう！
+        60秒で何回あいさつできるかな？<br/>
+        (あいさつできたら+1 point、できなかったら-3 point)
+      </p>
+
       <ScoreBoard timeLeft={timeLeft} score={score} />
 
-      {!isPlaying ? (
+      {countdown !== null ? (
+        <div className="countdown">
+          {countdown}
+        </div>
+      ) : !isPlaying ? (
         <button className="start-button" onClick={startGame}>
           START
         </button>
@@ -111,6 +145,7 @@ function App() {
         <GameScreen
           currentWord={currentWord.text}
           onAnswer={handleAnswer}
+          onExit={() => finishGame(false)}
           version={version}
         />
       )}
