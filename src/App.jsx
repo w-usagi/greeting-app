@@ -128,7 +128,8 @@ function App() {
       <p className="game-description">
         あいさつしよう！
         60秒で何回あいさつできるかな？<br/>
-        (あいさつできたら+1 point、できなかったら-3 point)
+        (あいさつできたら+1 point、できなかったら-3 point)<br/>
+        制作背景 <a href="https://github.com/w-usagi/greeting-app/blob/main/README.md">こちら</a> から
       </p>
 
       <ScoreBoard timeLeft={timeLeft} score={score} />
