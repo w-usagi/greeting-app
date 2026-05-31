@@ -16,8 +16,13 @@ Currently, two official plugins are available:
 #### 松田好花さんに届け！    
 ということでクソゲー好きの松田さんのためにゲームを作ってみました。  
 (自己満足で作成しています)    
-(B案の画像は勝手に使用しています。怒られたら差し替えます。ラジオでお知らせくださいm(_ _)m)    
+(B案の画像は勝手に使用しています。怒られたら差し替えます。ラジオでお知らせくださいm(_ _)m) 
+
+## Demo
 https://w-usagi.github.io/greeting-app/
+
+## Thumbnail
+![alt text](src/assets/thumbnail.jpg)
 
 ## 概要
 「さいな…」なららっきょうボタン、
